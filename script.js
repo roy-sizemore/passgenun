@@ -7,7 +7,6 @@ function writePassword() {
   function generatePassword() {
     let passwordText = document.querySelector("#password");
     
-    // passwordText.value = password;
     // Declare arrays containing upper and lower case letters, numbers and the special characters listed in the assignment readme w/empty array for all characters to be included in the new password based on user input
     const alfLowArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     const alfUpArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -31,7 +30,6 @@ function writePassword() {
     while (userSettings.size < 8 || userSettings.size > 128) {
       userSettings.size = prompt('Please input a password length between 8 - 128');
     };
-    console.log(userSettings.size);
 
     userSettings.lower = confirm('Do you want to include lowercase letters?');
     userSettings.upper = confirm('Do you want to include uppercase letters?');
@@ -53,9 +51,11 @@ function writePassword() {
     };
 
     // Generate password from totalPassArr
-    // totalPassArr += 
-    console.log(totalPassArr[Math.floor(Math.random() * totalPassArr.length)] * userSettings.size);
-    // console.log(totalPassArr);
+    let password = '';
+    for (i = 0; i < userSettings.size; i++) {
+      password += totalPassArr[Math.floor(Math.random() * totalPassArr.length)];
+    };
+    passwordText.value = password;
   };
 };
 
