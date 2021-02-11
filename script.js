@@ -49,6 +49,9 @@ function writePassword() {
     if (userSettings.special === true) {
       charSpecArr.forEach(s => totalPassArr.push(s))
     };
+    if (userSettings.lower === false && userSettings.upper === false && userSettings.number === false && userSettings.special === false) {
+      alert('Please press the "Generate Password" button again and select at least one criteria');
+    };
 
     // Generate password from totalPassArr
     let password = '';
