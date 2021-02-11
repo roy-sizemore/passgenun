@@ -70,11 +70,13 @@ function writePassword() {
       if (password === alfUpArr.some(x => !password.includes(x))) {
         finalPass();
       };
-    };if (userSettings.number === true) {
+    };
+    if (userSettings.number === true) {
       if (password === charNumArr.some(y => !password.includes(y))) {
         finalPass();
       };
-    };if (userSettings.special === true) {
+    };
+    if (userSettings.special === true) {
       if (password === charSpecArr.some(z => !password.includes(z))) {
         finalPass();
       };
