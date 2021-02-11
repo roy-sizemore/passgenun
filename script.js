@@ -52,10 +52,36 @@ function writePassword() {
 
     // Generate password from totalPassArr
     let password = '';
-    for (i = 0; i < userSettings.size; i++) {
-      password += totalPassArr[Math.floor(Math.random() * totalPassArr.length)];
+    function finalPass() {
+      for (i = 0; i < userSettings.size; i++) {
+        password += totalPassArr[Math.floor(Math.random() * totalPassArr.length)];
+      };
     };
-    passwordText.value = password;
+
+    finalPass();
+
+    // Validate whether password contains all user criteria
+    if (userSettings.lower === true) {
+      if (password === alfLowArr.some(w => !password.includes(w))) {
+        finalPass();
+      };
+    };
+    if (userSettings.upper === true) {
+      if (password === alfUpArr.some(x => !password.includes(x))) {
+        finalPass();
+      };
+    };if (userSettings.number === true) {
+      if (password === charNumArr.some(y => !password.includes(y))) {
+        finalPass();
+      };
+    };if (userSettings.special === true) {
+      if (password === charSpecArr.some(z => !password.includes(z))) {
+        finalPass();
+      };
+    } else {
+      // Pass to textarea in html
+      passwordText.value = password;
+    };
   };
 };
 
