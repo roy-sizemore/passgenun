@@ -38,52 +38,51 @@ function writePassword() {
 
     // Generate totalPassArr array based on user input
     if (userSettings.lower === true) {
-      alfLowArr.forEach(lett => totalPassArr.push(lett))
+      alfLowArr.forEach(l => totalPassArr.push(l));
       };
     if (userSettings.upper === true) {
-      alfUpArr.forEach(letter => totalPassArr.push(letter))
+      alfUpArr.forEach(u => totalPassArr.push(u));
     };
     if (userSettings.number === true) {
-      charNumArr.forEach(numero => totalPassArr.push(numero))
+      charNumArr.forEach(n => totalPassArr.push(n));
     };
     if (userSettings.special === true) {
-      charSpecArr.forEach(spec => totalPassArr.push(spec))
+      charSpecArr.forEach(s => totalPassArr.push(s))
     };
 
     // Generate password from totalPassArr
     let password = '';
-    function finalPass() {
-      for (i = 0; i < userSettings.size; i++) {
-        password += totalPassArr[Math.floor(Math.random() * totalPassArr.length)];
-      };
-    };
 
-    finalPass();
+    for (i = 0; i < userSettings.size; i++) {
+      password += totalPassArr[Math.floor(Math.random() * totalPassArr.length)];
+    };
 
     // Validate whether password contains all user criteria
-    if (userSettings.lower === true) {
-      if (password === alfLowArr.some(w => !password.includes(w))) {
-        finalPass();
-      };
-    };
-    if (userSettings.upper === true) {
-      if (password === alfUpArr.some(x => !password.includes(x))) {
-        finalPass();
-      };
-    };
-    if (userSettings.number === true) {
-      if (password === charNumArr.some(y => !password.includes(y))) {
-        finalPass();
-      };
-    };
-    if (userSettings.special === true) {
-      if (password === charSpecArr.some(z => !password.includes(z))) {
-        finalPass();
-      };
-    } else {
+    // if (userSettings.lower === true) {
+    //   if (password === alfLowArr.some(w => !password.includes(w))) {
+    //     password = notValid;
+    //   };
+    // };
+    // if (userSettings.upper === true) {
+    //   if (password === alfUpArr.some(x => !password.includes(x))) {
+    //     password = notValid;
+    //   };
+    // };
+    // if (userSettings.number === true) {
+    //   if (password === charNumArr.some(y => !password.includes(y))) {
+    //     password = notValid;
+    //   };
+    // };
+    // if (userSettings.special === true) {
+    //   if (password === charSpecArr.some(z => !password.includes(z))) {
+    //     password = notValid;
+    //   };
+    // };
+    // while (password === notValid) {
+    //   finalPass();
+    // };
       // Pass to textarea in html
       passwordText.value = password;
-    };
   };
 };
 
